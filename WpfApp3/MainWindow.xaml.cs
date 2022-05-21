@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp3
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
@@ -26,28 +23,27 @@ namespace WpfApp3
         {
             InitializeComponent();
         }
-        public int key = 2011;//Указываем ключ.
         public string str = "kazax";
 
         private void button1_Click(object sender, EventArgs e)
         {
-            char[] arr = textBox1.Text.ToCharArray();//Разбираем строку на символы и записываем в массив.
+            char[] arr = textBox1.Text.ToCharArray();
             for (int i = 0,j = 0; i < arr.Length; i++,j++)
             {
                 if(j == str.Length - 1)
                     j = 0;
-                textBox2.Text += (char)(arr[i] + str[j]); //Приводим символ к типу int,умножаем на 2011(переменная key) и разделяем каждый "шифрованный символ символом '-'. 
+                textBox2.Text += (char)(arr[i] + str[j]); 
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            char[] arr = textBox2.Text.ToCharArray();//Наши "символы же разделены '-',вот и ищем их.
+            char[] arr = textBox2.Text.ToCharArray();
             for (int i = 0,j = 0; i < arr.Length; i++,j++)
             {
                 if (j == str.Length - 1)
                     j = 0;
-                textBox3.Text += (char)(arr[i] - str[j]);//Тут вот муть какая-то,обернул в try,catch.Делим обратно на 2011 и приводим к типу char.
+                textBox3.Text += (char)(arr[i] - str[j]);
             }
         }
 
